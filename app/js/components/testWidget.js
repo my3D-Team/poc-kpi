@@ -4,12 +4,20 @@
 var React = require('react');
 
 var TestWidget = React.createClass({
+    getInitialState:function(){
+        return {
+            txt: ''
+        }
+    },
+    update: function(e){
+        this.setState({txt: e.target.value});
+    },
     render:function(){
         return (
             <div>
-                <input type="text" onChange={this.props.update} />
+                <input type="text" onChange={this.update} />
                 <br/>
-                <b>{this.props.txt}</b>
+                <b>{this.state.txt}</b>
             </div>
         );
     }
